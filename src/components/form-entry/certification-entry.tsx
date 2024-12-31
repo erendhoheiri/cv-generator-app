@@ -16,16 +16,17 @@ export function CertificationEntry({
   onDelete
 }: CertificationEntryProps) {
   return (
-    <div className='space-y-4 p-4 border rounded-lg'>
-      <div className='flex justify-between items-start gap-4'>
-        <div className='flex-1 space-y-4'>
-          <div className='grid grid-cols-2 gap-4'>
+    <div className='space-y-4 p-2 sm:p-4 border rounded-lg'>
+      <div className='flex flex-col sm:flex-row justify-between items-start gap-4'>
+        <div className='flex-1 space-y-4 w-full'>
+          <div className='grid grid-cols-1 sm:grid-cols-2 gap-4'>
             <Input
               placeholder='Certification Name'
               value={certification.name}
               onChange={e =>
                 onChange({ ...certification, name: e.target.value })
               }
+              className='w-full'
             />
             <Input
               placeholder='Issuer'
@@ -33,8 +34,9 @@ export function CertificationEntry({
               onChange={e =>
                 onChange({ ...certification, issuer: e.target.value })
               }
+              className='w-full'
             />
-            <div className='flex gap-2'>
+            <div className='w-full'>
               <YearPickerPopover
                 value={certification.year}
                 onChange={date => onChange({ ...certification, year: date })}
@@ -47,7 +49,7 @@ export function CertificationEntry({
           variant='ghost'
           size='icon'
           onClick={onDelete}
-          className='text-destructive'
+          className='text-destructive sm:mt-0 mt-2'
         >
           <Trash2 className='h-4 w-4' />
         </Button>

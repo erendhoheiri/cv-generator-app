@@ -13,7 +13,7 @@ export function PersonalInfoSection({
   onChange
 }: PersonalInfoProps) {
   return (
-    <>
+    <div className="space-y-4">
       <div>
         <Label htmlFor='fullName'>
           Full Name <span className='text-red-500'>*</span>
@@ -25,7 +25,7 @@ export function PersonalInfoSection({
           required
         />
       </div>
-      <div className='grid grid-cols-2 gap-4'>
+      <div className='grid grid-cols-1 sm:grid-cols-2 gap-4'>
         <div>
           <Label htmlFor='email'>
             Email <span className='text-red-500'>*</span>
@@ -48,23 +48,25 @@ export function PersonalInfoSection({
           />
         </div>
       </div>
-      <div>
-        <Label htmlFor='linkedin'>LinkedIn URL</Label>
-        <Input
-          id='linkedin'
-          type='url'
-          value={personalInfo.linkedin}
-          onChange={e => onChange('linkedin', e.target.value)}
-        />
-      </div>
-      <div>
-        <Label htmlFor='website'>Portfolio URL (Optional)</Label>
-        <Input
-          id='website'
-          type='url'
-          value={personalInfo.website}
-          onChange={e => onChange('website', e.target.value)}
-        />
+      <div className='grid grid-cols-1 sm:grid-cols-2 gap-4'>
+        <div>
+          <Label htmlFor='linkedin'>LinkedIn URL</Label>
+          <Input
+            id='linkedin'
+            type='url'
+            value={personalInfo.linkedin}
+            onChange={e => onChange('linkedin', e.target.value)}
+          />
+        </div>
+        <div>
+          <Label htmlFor='website'>Portfolio URL (Optional)</Label>
+          <Input
+            id='website'
+            type='url'
+            value={personalInfo.website}
+            onChange={e => onChange('website', e.target.value)}
+          />
+        </div>
       </div>
       <div>
         <Label htmlFor='address'>
@@ -77,6 +79,6 @@ export function PersonalInfoSection({
           required
         />
       </div>
-    </>
+    </div>
   );
 }

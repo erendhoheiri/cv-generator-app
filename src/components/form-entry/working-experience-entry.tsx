@@ -28,10 +28,10 @@ export function WorkingExperienceEntry({
   onDelete
 }: WorkExperienceEntryProps) {
   return (
-    <div className='space-y-4 p-4 border rounded-lg'>
-      <div className='flex justify-between items-start gap-4'>
-        <div className='flex-1 space-y-4'>
-          <div className='grid grid-cols-2 gap-4'>
+    <div className='space-y-4 p-2 sm:p-4 border rounded-lg'>
+      <div className='flex flex-col sm:flex-row justify-between items-start gap-4'>
+        <div className='flex-1 space-y-4 w-full'>
+          <div className='grid grid-cols-1 sm:grid-cols-2 gap-4'>
             <Input
               placeholder='Company Name'
               value={experience.companyName}
@@ -48,7 +48,7 @@ export function WorkingExperienceEntry({
             />
           </div>
 
-          <div className='grid grid-cols-2 gap-4'>
+          <div className='grid grid-cols-1 sm:grid-cols-2 gap-4'>
             <Input
               placeholder='Location'
               value={experience.location}
@@ -73,7 +73,7 @@ export function WorkingExperienceEntry({
               </SelectContent>
             </Select>
           </div>
-          <div className='grid grid-cols-2 gap-4'>
+          <div className='grid grid-cols-1 sm:grid-cols-2 gap-4'>
             <YearPickerPopover
               value={experience.startYear}
               onChange={date => onChange({ ...experience, startYear: date })}
@@ -150,7 +150,7 @@ export function WorkingExperienceEntry({
         <Button
           variant='ghost'
           size='icon'
-          className='text-red-500 hover:text-red-700'
+          className='text-destructive self-start'
           onClick={onDelete}
         >
           <Trash2 className='h-4 w-4' />

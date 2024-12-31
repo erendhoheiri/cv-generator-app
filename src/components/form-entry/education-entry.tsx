@@ -34,10 +34,10 @@ export function EducationEntry({
     };
 
   return (
-    <div className='space-y-4 p-4 border rounded-lg'>
-      <div className='flex justify-between items-start gap-4'>
-        <div className='flex-1 space-y-4'>
-          <div className='grid grid-cols-2 gap-4'>
+    <div className='space-y-4 p-2 sm:p-4 border rounded-lg'>
+      <div className='flex flex-col sm:flex-row justify-between items-start gap-4'>
+        <div className='flex-1 space-y-4 w-full'>
+          <div className='grid grid-cols-1 sm:grid-cols-2 gap-4'>
             <div>
               <Label htmlFor='schoolName'>
                 School Name <span className='text-red-500'>*</span>
@@ -63,7 +63,7 @@ export function EducationEntry({
             </div>
           </div>
 
-          <div className='grid grid-cols-2 gap-4'>
+          <div className='grid grid-cols-1 sm:grid-cols-2 gap-4'>
             <div>
               <Label htmlFor='startYear'>
                 Start Year <span className='text-red-500'>*</span>
@@ -97,7 +97,7 @@ export function EducationEntry({
             <Label htmlFor='isCurrentlyStudying'>Currently studying here</Label>
           </div>
 
-          <div className='grid grid-cols-2 gap-4'>
+          <div className='grid grid-cols-1 sm:grid-cols-2 gap-4'>
             <div>
               <Label htmlFor='level'>
                 Level <span className='text-red-500'>*</span>
@@ -134,7 +134,7 @@ export function EducationEntry({
             </div>
           </div>
 
-          <div className='grid grid-cols-2 gap-4'>
+          <div className='grid grid-cols-1 sm:grid-cols-2 gap-4'>
             <div>
               <Label htmlFor='gpaOptional'>GPA (Optional)</Label>
               <Input
@@ -167,7 +167,7 @@ export function EducationEntry({
           variant='ghost'
           size='icon'
           onClick={onDelete}
-          className='text-destructive'
+          className='text-destructive self-start'
         >
           <Trash2 className='h-4 w-4' />
         </Button>
