@@ -88,7 +88,7 @@ export const CVPreview = ({ data }: CVPreviewProps) => {
     return contacts.map((contact, index) => (
       <React.Fragment key={index}>
         {contact}
-        {index < contacts.length - 1 && <span>|</span>}
+        {index < contacts.length - 1 && <span className='mx-1'>|</span>}
       </React.Fragment>
     ));
   };
@@ -99,10 +99,10 @@ export const CVPreview = ({ data }: CVPreviewProps) => {
 
   return (
     <div className='h-full flex flex-col'>
-      <div className='border-b p-4 flex items-center justify-between'>
+      <div className='border-b p-2 sm:p-4 flex flex-col sm:flex-row items-center justify-between gap-2'>
         <div className='flex gap-2' />
-        <div className='flex items-center gap-4'>
-          <div className='flex items-center gap-2'>
+        <div className='flex flex-wrap justify-center items-center gap-2 sm:gap-4'>
+          <div className='flex  items-center gap-2'>
             <Button
               variant='outline'
               size='icon'
@@ -119,14 +119,17 @@ export const CVPreview = ({ data }: CVPreviewProps) => {
               <Plus className='h-4 w-4' />
             </Button>
           </div>
-          <Button className='gap-2' onClick={() => handleDownloadPDF()}>
+          <Button
+            className='gap-2 w-full sm:w-auto'
+            onClick={() => handleDownloadPDF()}
+          >
             <Download className='h-4 w-4' />
             Download PDF
           </Button>
         </div>
       </div>
 
-      <div className='flex-1 p-8 bg-gray-100 overflow-auto'>
+      <div className='flex-1 p-2 sm:p-4 md:p-8 bg-gray-100 overflow-auto'>
         <div
           ref={contentRef}
           id='cv-content'
@@ -134,21 +137,22 @@ export const CVPreview = ({ data }: CVPreviewProps) => {
           style={{
             fontSize: `${fontSize}px`,
             minHeight: '297mm',
-            width: '210mm',
-            padding: '15mm',
+            width: '100%',
+            maxWidth: '210mm',
+            padding: '10mm',
             boxSizing: 'border-box'
           }}
         >
           {/* Header Section */}
           <header className='space-y-1 text-center border-b pb-2'>
-            <h1 className='text-2xl font-bold uppercase tracking-wide leading-none'>
+            <h1 className='text-xl sm:text-2xl font-bold uppercase tracking-wide leading-none'>
               {data.personalInfo?.fullName}
             </h1>
-            <div className='flex flex-wrap justify-center items-center gap-x-2 text-sm leading-tight'>
+            <div className='flex flex-wrap justify-center items-center gap-1 sm:gap-x-2 text-xs sm:text-sm leading-tight'>
               {renderContactInfo()}
             </div>
             {data.personalInfo?.address && (
-              <p className='text-sm leading-tight'>
+              <p className='text-xs sm:text-sm leading-tight'>
                 {data.personalInfo.address}
               </p>
             )}
@@ -157,29 +161,31 @@ export const CVPreview = ({ data }: CVPreviewProps) => {
           {/* Objective Section */}
           {data.objective && (
             <section className='mt-2 text-justify'>
-              <h2 className='text-lg text-center font-semibold leading-none mb-2 mt-2'>
+              <h2 className='text-base sm:text-lg text-center font-semibold leading-none mb-2 mt-2'>
                 SUMMARY
               </h2>
-              <p className='text-sm leading-tight'>{data.objective}</p>
+              <p className='text-xs sm:text-sm leading-tight'>
+                {data.objective}
+              </p>
             </section>
           )}
 
           {/* Work Experience Section */}
           {data.workExperience.length > 0 && (
-            <section className='mt-6 section-break'>
-              <h2 className='text-lg font-semibold border-b leading-none'>
+            <section className='mt-4 sm:mt-6 section-break'>
+              <h2 className='text-base sm:text-lg font-semibold border-b leading-none'>
                 WORK EXPERIENCE
               </h2>
               <div className='space-y-2 pt-2'>
                 {data.workExperience.map((exp, index) => (
-                  <div key={index} className='flex flex-col gap-y-2'>
-                    <div className='flex justify-between leading-tight'>
+                  <div key={index} className='flex flex-col gap-y-1 sm:gap-y-2'>
+                    <div className='flex flex-col sm:flex-row justify-between leading-tight'>
                       <div className='flex flex-col'>
                         <h3 className='font-semibold'>{exp.companyName}</h3>
-                        <p className=' text-md'>{exp.position}</p>
+                        <p className='text-sm sm:text-md'>{exp.position}</p>
                       </div>
-                      <div className='text-right '>
-                        <div className='flex flex-col text-sm'>
+                      <div className='text-left sm:text-right mt-1 sm:mt-0'>
+                        <div className='flex flex-col text-xs sm:text-sm'>
                           <p>{exp.location}</p>
                           <p>
                             {format(exp.startYear, 'MMM yyyy')} -{' '}
@@ -189,7 +195,7 @@ export const CVPreview = ({ data }: CVPreviewProps) => {
                       </div>
                     </div>
                     {exp.description && (
-                      <div className='text-sm  leading-tight'>
+                      <div className='text-xs sm:text-sm leading-tight'>
                         {exp.description.map((desc, i) => (
                           <div key={i} className='flex'>
                             <span className='mr-2'>•</span>
@@ -206,24 +212,24 @@ export const CVPreview = ({ data }: CVPreviewProps) => {
 
           {/* Certifications Section */}
           {data.certifications.length > 0 && (
-            <section className='mt-6 section-break'>
-              <h2 className='text-lg font-semibold border-b leading-none mt-1'>
+            <section className='mt-4 sm:mt-6 section-break'>
+              <h2 className='text-base sm:text-lg font-semibold border-b leading-none mt-1'>
                 CERTIFICATIONS
               </h2>
               <div className='space-y-1'>
                 {data.certifications.map((cert, index) => (
                   <div
                     key={index}
-                    className='flex justify-between leading-tight'
+                    className='flex flex-col sm:flex-row justify-between leading-tight'
                   >
                     <div className='flex'>
-                      <h3 className='font-semibold text-sm'>
+                      <h3 className='font-semibold text-xs sm:text-sm'>
                         {cert.name},{' '}
-                        <span className='font-normal '>{cert.issuer}</span>
+                        <span className='font-normal'>{cert.issuer}</span>
                       </h3>
                     </div>
-                    <div className='text-right '>
-                      <p className='text-sm leading-tight'>
+                    <div className='text-left sm:text-right mt-1 sm:mt-0'>
+                      <p className='text-xs sm:text-sm leading-tight'>
                         {cert.year && format(cert.year, 'MMM yyyy')}
                       </p>
                     </div>
@@ -235,35 +241,37 @@ export const CVPreview = ({ data }: CVPreviewProps) => {
 
           {/* Education Section */}
           {data.education.length > 0 && (
-            <section className='mt-6 section-break'>
-              <h2 className='text-lg font-semibold border-b leading-none mt-1'>
+            <section className='mt-4 sm:mt-6 section-break'>
+              <h2 className='text-base sm:text-lg font-semibold border-b leading-none mt-1'>
                 EDUCATION
               </h2>
               <div className='space-y-1'>
                 {data.education.map((edu, index) => (
                   <div
                     key={index}
-                    className='flex justify-between leading-tight'
+                    className='flex flex-col sm:flex-row justify-between leading-tight'
                   >
                     <div>
                       <h3 className='font-semibold'>{edu.schoolName}</h3>
-                      <div className='flex text-sm'>
-                        <p className=''>{edu.level} of </p>
-                        <p className='ml-1 '>{edu.program}</p>
+                      <div className='flex text-xs sm:text-sm'>
+                        <p>{edu.level} of </p>
+                        <p className='ml-1'>{edu.program}</p>
                       </div>
                       {edu.gpaOptional && (
-                        <p className=' text-sm'>
+                        <p className='text-xs sm:text-sm'>
                           GPA: {edu.gpaOptional}
                           {edu.gpaMaximum && `/${edu.gpaMaximum}`}
                         </p>
                       )}
                       {edu.description && (
-                        <p className=' text-sm mt-0.5'>{edu.description}</p>
+                        <p className='text-xs sm:text-sm mt-0.5'>
+                          {edu.description}
+                        </p>
                       )}
                     </div>
-                    <div className='text-right '>
-                      <p className='text-sm'>{edu.location}</p>
-                      <p className='text-sm'>
+                    <div className='text-left sm:text-right mt-1 sm:mt-0'>
+                      <p className='text-xs sm:text-sm'>{edu.location}</p>
+                      <p className='text-xs sm:text-sm'>
                         {format(edu.startYear, 'MMM yyyy')} -{' '}
                         {formatDate(edu.endYear, edu.isCurrentlyStudying)}
                       </p>
@@ -276,22 +284,22 @@ export const CVPreview = ({ data }: CVPreviewProps) => {
 
           {/* Organizations Section */}
           {data.organizations.length > 0 && (
-            <section className='mt-6 section-break'>
-              <h2 className='text-lg font-semibold border-b leading-none mt-1'>
+            <section className='mt-4 sm:mt-6 section-break'>
+              <h2 className='text-base sm:text-lg font-semibold border-b leading-none mt-1'>
                 ORGANIZATIONS
               </h2>
               <div className='space-y-2 pt-2'>
                 {data.organizations.map((org, index) => (
-                  <div key={index} className='flex flex-col gap-y-2'>
-                    <div className='flex justify-between leading-tight'>
+                  <div key={index} className='flex flex-col gap-y-1 sm:gap-y-2'>
+                    <div className='flex flex-col sm:flex-row justify-between leading-tight'>
                       <div className='flex flex-col'>
                         <h3 className='font-semibold'>
                           {org.organizationName}
                         </h3>
-                        <p className=' text-sm'>{org.position}</p>
+                        <p className='text-xs sm:text-sm'>{org.position}</p>
                       </div>
-                      <div className='text-right '>
-                        <div className='flex flex-col text-sm'>
+                      <div className='text-left sm:text-right mt-1 sm:mt-0'>
+                        <div className='flex flex-col text-xs sm:text-sm'>
                           <p>{org.location}</p>
                           <p>
                             {format(org.startYear, 'MMM yyyy')} -{' '}
@@ -301,7 +309,7 @@ export const CVPreview = ({ data }: CVPreviewProps) => {
                       </div>
                     </div>
                     {org.description && (
-                      <div className='text-sm  leading-tight'>
+                      <div className='text-xs sm:text-sm leading-tight'>
                         <p className='text-justify'>{org.description}</p>
                       </div>
                     )}
@@ -313,24 +321,26 @@ export const CVPreview = ({ data }: CVPreviewProps) => {
 
           {/* Awards Section */}
           {data.awards.length > 0 && (
-            <section className='mt-6 section-break'>
-              <h2 className='text-lg font-semibold border-b leading-none mt-1'>
+            <section className='mt-4 sm:mt-6 section-break'>
+              <h2 className='text-base sm:text-lg font-semibold border-b leading-none mt-1'>
                 AWARDS
               </h2>
               <div className='space-y-1'>
                 {data.awards.map((award, index) => (
                   <div
                     key={index}
-                    className='flex justify-between leading-tight'
+                    className='flex flex-col sm:flex-row justify-between leading-tight'
                   >
                     <div>
                       <h3 className='font-semibold'>{award.name}</h3>
                       {award.description && (
-                        <p className=' text-sm mt-0.5'>{award.description}</p>
+                        <p className='text-xs sm:text-sm mt-0.5'>
+                          {award.description}
+                        </p>
                       )}
                     </div>
-                    <div className='text-right '>
-                      <p className='text-sm leading-tight'>
+                    <div className='text-left sm:text-right mt-1 sm:mt-0'>
+                      <p className='text-xs sm:text-sm leading-tight'>
                         {format(award.year, 'MMM yyyy')}
                       </p>
                     </div>
@@ -342,13 +352,13 @@ export const CVPreview = ({ data }: CVPreviewProps) => {
 
           {/* Skills Section */}
           {data?.skills?.length > 0 && (
-            <section className='mt-6 section-break'>
-              <h2 className='text-lg font-semibold border-b leading-none mt-1'>
+            <section className='mt-4 sm:mt-6 section-break'>
+              <h2 className='text-base sm:text-lg font-semibold border-b leading-none mt-1'>
                 SKILLS
               </h2>
               <div className='space-y-2 pt-2'>
                 {data.skills.map((skill, index) => (
-                  <div className='flex flex-col text-sm ' key={index}>
+                  <div className='flex flex-col text-xs sm:text-sm' key={index}>
                     {skill.hardSkill && (
                       <p>
                         <span className='font-semibold'>Hard Skills:</span>{' '}
@@ -375,16 +385,19 @@ export const CVPreview = ({ data }: CVPreviewProps) => {
 
           {/* Languages Section */}
           {data?.languages?.length > 0 && (
-            <section className='mt-6 section-break'>
-              <h2 className='text-lg font-semibold border-b leading-none mt-1'>
+            <section className='mt-4 sm:mt-6 section-break'>
+              <h2 className='text-base sm:text-lg font-semibold border-b leading-none mt-1'>
                 LANGUAGES
               </h2>
-              <div className='space-y-2 pt-2 '>
+              <div className='space-y-2 pt-2'>
                 {data.languages.map((language, index) => (
-                  <div className='flex flex-col text-sm mb-[-8px]' key={index}>
+                  <div
+                    className='flex flex-col text-xs sm:text-sm mb-[-8px]'
+                    key={index}
+                  >
                     <p className='font-semibold'>
                       {language.name} -{' '}
-                      <span className=' font-normal'>{language.level}</span>
+                      <span className='font-normal'>{language.level}</span>
                     </p>
                   </div>
                 ))}
@@ -394,13 +407,16 @@ export const CVPreview = ({ data }: CVPreviewProps) => {
 
           {/* References Section */}
           {data?.references?.length > 0 && (
-            <section className='mt-6 section-break'>
-              <h2 className='text-lg font-semibold border-b leading-none mt-1'>
+            <section className='mt-4 sm:mt-6 section-break'>
+              <h2 className='text-base sm:text-lg font-semibold border-b leading-none mt-1'>
                 REFERENCES
               </h2>
               <div className='space-y-2 pt-2'>
                 {data.references.map((ref, index) => (
-                  <div key={index} className='flex text-sm '>
+                  <div
+                    key={index}
+                    className='flex flex-col sm:flex-row text-xs sm:text-sm'
+                  >
                     <div className='flex-1'>
                       <p className='font-semibold'>{ref.name}</p>
                       <div className='flex flex-col'>
@@ -409,7 +425,7 @@ export const CVPreview = ({ data }: CVPreviewProps) => {
                         </p>
                       </div>
                     </div>
-                    <div className='flex-2'>
+                    <div className='flex-2 mt-1 sm:mt-0'>
                       <div className='flex flex-col text-xs'>
                         <a
                           href={`mailto:${ref.email}`}
