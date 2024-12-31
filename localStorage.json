@@ -1,0 +1,118 @@
+{
+  "personalInfo": {
+    "fullName": "Eren Dhoheiri",
+    "email": "dhoheiri@gmail.com",
+    "phone": "+6282359024588",
+    "linkedin": "https://www.linkedin.com/in/erendhoheiri/",
+    "website": "",
+    "address": "Tangerang, Banten."
+  },
+  "objective": "Driven by a journey from self-taught developer to engineering manager, my objective is to leverage my extensive technical expertise and leadership acumen to foster high-performing teams and deliver exceptional results. I am committed to guiding projects from inception to success, aligning closely with business objectives while enhancing product quality and performance. Skilled in communication, I excel at translating complex technical details into actionable strategies that resonate with stakeholders, ensuring collaborative success and continuous growth within dynamic and joyful environments.",
+  "education": [
+    {
+      "schoolName": "Universitas Muhammadiyah Yogyakarta",
+      "startYear": "2015-06-30T17:00:00.000Z",
+      "endYear": "2019-10-31T17:00:00.000Z",
+      "location": "Yogyakarta",
+      "level": "Bachelor",
+      "program": "Management",
+      "gpaOptional": "3.6",
+      "gpaMaximum": "4",
+      "description": "",
+      "isCurrentlyStudying": false
+    }
+  ],
+  "workExperience": [
+    {
+      "companyName": "eFishery",
+      "startYear": "2021-10-31T17:00:00.000Z",
+      "endYear": "2024-12-29T14:35:40.959Z",
+      "location": "Remote",
+      "description": [
+        "Managed and mentored a diverse team of 6 Backend Engineers and 4 Frontend Engineers, fostering a collaborative and high-performance environment.",
+        "Led the planning, execution, and delivery of Internal Tools and Transport Management Systems, ensuring alignment with business objectives and on-time delivery.",
+        "Orchestrated efforts across multiple projects by managing dependencies and fostering collaboration between engineering, product, design, and business at the squad or tribe levels.",
+        "Conducted technical design reviews to ensure high standards of scalability, reliability, and maintainability, and enforced standardized processes and best practices.",
+        "Identified and implemented process improvements to enhance team efficiency, streamline cross-team workflows, and adapt to evolving project needs.",
+        "Acted as a liaison between engineering and other departments, providing clear communication on project status, risks, and dependencies."
+      ],
+      "isCurrentlyWorking": true,
+      "employmentType": "Full-time",
+      "position": "Engineering Manager"
+    },
+    {
+      "companyName": "Bizzy Indonesia",
+      "startYear": "2021-03-31T17:00:00.000Z",
+      "endYear": "2021-10-31T17:00:00.000Z",
+      "location": "Remote",
+      "description": [
+        "Develop supply app platform with ReactJS, Antdesign & Redux.",
+        "Develop a Bizzy Connect Services with NodeJS, AWS Lambda, and Serverless.",
+        "Develop services with event-driven architecture (AWS SNS & SQS).",
+        "Collaborate with Product Manager, QA, and Scrum Master to fulfill the business needs."
+      ],
+      "isCurrentlyWorking": false,
+      "employmentType": "Full-time",
+      "position": "Software Engineer"
+    },
+    {
+      "companyName": "Kompas Gramedia",
+      "startYear": "2020-06-30T17:00:00.000Z",
+      "endYear": "2020-11-30T17:00:00.000Z",
+      "location": "Jakarta",
+      "description": [
+        "Develop and maintain a website with Apostrophe Framework.",
+        "Build reusable code and libraries for future use.",
+        "Assure that all user input is validated before submitting to back-end",
+        "Work closely with solution analysts to fulfill the business needs."
+      ],
+      "isCurrentlyWorking": false,
+      "employmentType": "Contract",
+      "position": "Software Engineer"
+    },
+    {
+      "companyName": "Celerates",
+      "startYear": "2020-02-29T17:00:00.000Z",
+      "endYear": "2021-03-31T17:00:00.000Z",
+      "location": "Jakarta",
+      "description": [
+        " Develop and maintain both web or mobile applications for clients.",
+        "Collaborate with the rest of the team to ensure applications align with client needs.",
+        "Usual development using: ReactJs, Redux, React Native, Lumen, NodeJS, PostgreSQL."
+      ],
+      "isCurrentlyWorking": false,
+      "employmentType": "",
+      "position": "Software Engineer"
+    }
+  ],
+  "certifications": [
+    {
+      "name": "Javascript Algorithms",
+      "year": "2021-10-31T17:00:00.000Z",
+      "issuer": "TestDome"
+    },
+    {
+      "name": "Cloud Practioner Essentials",
+      "year": "2021-03-31T17:00:00.000Z",
+      "issuer": "Dicoding Indonesia"
+    },
+    {
+      "name": "Agile Methodology",
+      "year": "2021-06-30T17:00:00.000Z",
+      "issuer": "Udemy"
+    }
+  ],
+  "organizations": [
+    {
+      "organizationName": "Generasi Indonesia Mengabdi",
+      "position": "Project Coordinator",
+      "startYear": "2016-12-31T17:00:00.000Z",
+      "endYear": "2018-05-31T17:00:00.000Z",
+      "location": "Lombok, NTB",
+      "description": "I helped the project teams manage resources, assigning tasks, controlling schedules, communicating the project’s progress to team members and other stakeholders, and managing the project’s budget.",
+      "isCurrentlyActive": false
+    }
+  ],
+  "awards": [],
+  "skills": []
+}
