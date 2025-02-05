@@ -6,7 +6,7 @@ import Link from 'next/link';
 
 export default function CVGeneratorLanding() {
   return (
-    <div className='flex flex-col min-h-screen p-5 sm:p-5 md:p-5 lg:p-10 xl:p-20'>
+    <div className='flex flex-col min-h-screen p-5 sm:p-5 md:p-5 lg:p-10 xl:p-10'>
       {/* Header */}
       <header className='px-4 lg:px-6 h-16 flex items-center border-b'>
         <Link href='/' className='flex items-center gap-2 font-semibold'>

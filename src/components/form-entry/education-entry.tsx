@@ -12,7 +12,8 @@ import {
   SelectTrigger,
   SelectValue
 } from '@/components/ui/select';
-import { YearPickerPopover } from '@/lib/year-picker';
+import { MonthYearPicker } from '@/lib/month-year-picker';
+
 interface EducationEntryProps {
   education: Education;
   onChange: (education: Education) => void;
@@ -68,7 +69,7 @@ export function EducationEntry({
               <Label htmlFor='startYear'>
                 Start Year <span className='text-red-500'>*</span>
               </Label>
-              <YearPickerPopover
+              <MonthYearPicker
                 value={education.startYear}
                 onChange={date => onChange({ ...education, startYear: date })}
                 placeholder='Select start month/year'
@@ -78,7 +79,7 @@ export function EducationEntry({
               <Label htmlFor='endYear'>
                 End Year <span className='text-red-500'>*</span>
               </Label>
-              <YearPickerPopover
+              <MonthYearPicker
                 value={education.endYear}
                 onChange={date => onChange({ ...education, endYear: date })}
                 placeholder='Select end month/year'
@@ -159,7 +160,7 @@ export function EducationEntry({
               id='description'
               value={education.description}
               onChange={handleChange('description')}
-              className='min-h-[100px]'
+              className='min-h-[150px]'
             />
           </div>
         </div>

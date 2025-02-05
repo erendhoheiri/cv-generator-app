@@ -2,7 +2,7 @@ import { Input } from '@/components/ui/input';
 import { Button } from '@/components/ui/button';
 import { Trash2 } from 'lucide-react';
 import { Certification } from '../../types/cv';
-import { YearPickerPopover } from '@/lib/year-picker';
+import { MonthYearPicker } from '@/lib/month-year-picker';
 
 interface CertificationEntryProps {
   certification: Certification;
@@ -37,7 +37,7 @@ export function CertificationEntry({
               className='w-full'
             />
             <div className='w-full'>
-              <YearPickerPopover
+              <MonthYearPicker
                 value={certification.year}
                 onChange={date => onChange({ ...certification, year: date })}
                 placeholder='Select start month/year'

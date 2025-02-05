@@ -3,7 +3,7 @@ import { Button } from '@/components/ui/button';
 import { Trash2 } from 'lucide-react';
 import { Award } from '../../types/cv';
 import { Textarea } from '@/components/ui/textarea';
-import { YearPickerPopover } from '@/lib/year-picker';
+import { MonthYearPicker } from '@/lib/month-year-picker';
 
 interface AwardEntryProps {
   award: Award;
@@ -23,7 +23,7 @@ export function AwardEntry({ award, onChange, onDelete }: AwardEntryProps) {
               onChange={e => onChange({ ...award, name: e.target.value })}
               className='w-full'
             />
-            <YearPickerPopover
+            <MonthYearPicker
               value={award.year}
               onChange={date => onChange({ ...award, year: date })}
               placeholder='Select start month/year'
@@ -36,7 +36,7 @@ export function AwardEntry({ award, onChange, onDelete }: AwardEntryProps) {
               onChange={e =>
                 onChange({ ...award, description: e.target.value })
               }
-              className='w-full'
+              className='w-full min-h-[200px]'
             />
           </div>
         </div>

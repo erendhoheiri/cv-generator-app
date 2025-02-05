@@ -8,7 +8,6 @@ import {
   GraduationCap,
   Wrench
 } from 'lucide-react';
-import { Accordion } from '@/components/ui/accordion';
 import { Label } from '@/components/ui/label';
 import { Textarea } from '@/components/ui/textarea';
 import { Button } from '@/components/ui/button';
@@ -24,6 +23,12 @@ import { CertificationEntry } from './form-entry/certification-entry';
 import { SkillEntry } from './form-entry/skill-entry';
 import { LanguageEntry } from './form-entry/languange-entry';
 import { ReferenceEntry } from './form-entry/reference-entry';
+import {
+  Accordion,
+  AccordionItem,
+  AccordionTrigger,
+  AccordionContent
+} from '@/components/ui/accordion';
 
 export function CVForm({ data, onChange }: CVFormProps) {
   const handleChange =
@@ -68,7 +73,7 @@ export function CVForm({ data, onChange }: CVFormProps) {
               value={data.objective}
               onChange={handleChange('objective')}
               placeholder='Write your career objective'
-              className='min-h-[100px]'
+              className='min-h-[200px]'
             />
           </div>
         </FormSection>
@@ -79,22 +84,48 @@ export function CVForm({ data, onChange }: CVFormProps) {
           title='Working Experience'
         >
           <div className='space-y-4'>
-            {data.workExperience.map((work, index) => (
-              <WorkingExperienceEntry
-                key={index}
-                experience={work}
-                onChange={(updatedWork: WorkExperience) => {
-                  const newWorkExperience = [...data.workExperience];
-                  newWorkExperience[index] = updatedWork;
-                  onChange({ ...data, workExperience: newWorkExperience });
-                }}
-                onDelete={() => {
-                  const newWorkExperience = [...data.workExperience];
-                  newWorkExperience.splice(index, 1);
-                  onChange({ ...data, workExperience: newWorkExperience });
-                }}
-              />
-            ))}
+            <Accordion type='multiple' className='space-y-4'>
+              {data.workExperience.map((work, index) => (
+                <AccordionItem key={index} value={`work-${index}`}>
+                  <AccordionTrigger className='hover:no-underline'>
+                    <div className='flex items-center gap-2'>
+                      <Briefcase className='h-4 w-4 text-muted-foreground' />
+                      <div className='flex flex-col'>
+                        <span className='font-medium'>
+                          {work.companyName || 'New Working Experience'}
+                        </span>
+                        {work.position && (
+                          <span className='text-sm text-muted-foreground'>
+                            {work.position}
+                          </span>
+                        )}
+                      </div>
+                    </div>
+                  </AccordionTrigger>
+                  <AccordionContent>
+                    <WorkingExperienceEntry
+                      experience={work}
+                      onChange={(updatedWork: WorkExperience) => {
+                        const newWorkExperience = [...data.workExperience];
+                        newWorkExperience[index] = updatedWork;
+                        onChange({
+                          ...data,
+                          workExperience: newWorkExperience
+                        });
+                      }}
+                      onDelete={() => {
+                        const newWorkExperience = [...data.workExperience];
+                        newWorkExperience.splice(index, 1);
+                        onChange({
+                          ...data,
+                          workExperience: newWorkExperience
+                        });
+                      }}
+                    />
+                  </AccordionContent>
+                </AccordionItem>
+              ))}
+            </Accordion>
             <Button
               variant='outline'
               onClick={() => {

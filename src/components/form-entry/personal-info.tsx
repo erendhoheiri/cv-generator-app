@@ -13,7 +13,7 @@ export function PersonalInfoSection({
   onChange
 }: PersonalInfoProps) {
   return (
-    <div className="space-y-4">
+    <div className='space-y-4'>
       <div>
         <Label htmlFor='fullName'>
           Full Name <span className='text-red-500'>*</span>

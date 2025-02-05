@@ -31,8 +31,6 @@ const initialData: CV = {
 export default function CVGenerator() {
   const [cvData, setCvData] = useLocalStorage<CV>('cvData', initialData);
 
-  console.log(cvData);
-
   return (
     <div className='flex flex-col min-h-screen'>
       <header className='px-4 lg:px-6 h-16 flex items-center border-b'>

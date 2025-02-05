@@ -7,7 +7,7 @@ import { Input } from '@/components/ui/input';
 import { Trash2 } from 'lucide-react';
 import { Switch } from '@/components/ui/switch';
 import { Label } from '@/components/ui/label';
-import { YearPickerPopover } from '@/lib/year-picker';
+import { MonthYearPicker } from '@/lib/month-year-picker';
 import {
   Select,
   SelectContent,
@@ -27,6 +27,7 @@ export function WorkingExperienceEntry({
   onChange,
   onDelete
 }: WorkExperienceEntryProps) {
+  console.log(experience);
   return (
     <div className='space-y-4 p-2 sm:p-4 border rounded-lg'>
       <div className='flex flex-col sm:flex-row justify-between items-start gap-4'>
@@ -74,16 +75,27 @@ export function WorkingExperienceEntry({
             </Select>
           </div>
           <div className='grid grid-cols-1 sm:grid-cols-2 gap-4'>
-            <YearPickerPopover
+            <MonthYearPicker
               value={experience.startYear}
               onChange={date => onChange({ ...experience, startYear: date })}
-              placeholder='Select start month/year'
+              placeholder='Start Date'
             />
-            <YearPickerPopover
-              value={experience.endYear}
-              onChange={date => onChange({ ...experience, endYear: date })}
-              placeholder='Select end month/year'
-            />
+            {!experience.isCurrentlyWorking ? (
+              <MonthYearPicker
+                value={experience.endYear}
+                onChange={date => onChange({ ...experience, endYear: date })}
+                placeholder='End Date'
+              />
+            ) : (
+              <MonthYearPicker
+                value={undefined}
+                onChange={() =>
+                  onChange({ ...experience, endYear: new Date() })
+                }
+                placeholder='End Date'
+                disabled
+              />
+            )}
           </div>
 
           <div className='flex items-center gap-2'>

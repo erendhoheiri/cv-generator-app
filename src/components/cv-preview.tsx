@@ -6,6 +6,13 @@ import { Download, Plus, Minus } from 'lucide-react';
 import { format } from 'date-fns';
 import { CVPreviewProps } from '../types/cv';
 import { useReactToPrint } from 'react-to-print';
+import {
+  Select,
+  SelectContent,
+  SelectItem,
+  SelectTrigger,
+  SelectValue
+} from '@/components/ui/select';
 
 const MIN_FONT_SIZE = 12;
 const MAX_FONT_SIZE = 24;
@@ -57,7 +64,11 @@ export const CVPreview = ({ data }: CVPreviewProps) => {
   const renderContactInfo = () => {
     const { phone, email, linkedin, website } = data.personalInfo || {};
     const contacts = [
-      phone && <span key='phone'>{phone}</span>,
+      phone && (
+        <a key='phone' href={`tel:${phone}`} className='text-blue-500'>
+          {phone}
+        </a>
+      ),
       email && (
         <a key='email' href={`mailto:${email}`} className='text-blue-500'>
           {email}
@@ -103,24 +114,38 @@ export const CVPreview = ({ data }: CVPreviewProps) => {
     <div className='h-full flex flex-col'>
       <div className='border-b p-2 sm:p-4 flex flex-col sm:flex-row items-center justify-between gap-2'>
         <div className='flex gap-2' />
-        <div className='flex flex-wrap justify-center items-center gap-2 sm:gap-4'>
-          <div className='flex  items-center gap-2'>
-            <Button
-              variant='outline'
-              size='icon'
-              onClick={() => handleFontSizeChange(false)}
-            >
-              <Minus className='h-4 w-4' />
-            </Button>
-            <span className='text-lg'>A</span>
-            <Button
-              variant='outline'
-              size='icon'
-              onClick={() => handleFontSizeChange(true)}
-            >
-              <Plus className='h-4 w-4' />
-            </Button>
-          </div>
+        <div className='flex flex-wrap justify-center items-center gap-2 sm:gap-4 w-full sm:w-auto'>
+          <style jsx global>{`
+            @import url('https://fonts.googleapis.com/css2?family=Lato:wght@400;700&family=Merriweather:wght@400;700&family=Open+Sans:wght@400;600&family=Playfair+Display:wght@400;700&family=Roboto:wght@400;500&family=Source+Sans+Pro:wght@400;600&family=Poppins:wght@400;500;600&family=Montserrat:wght@400;500;600&family=Raleway:wght@400;500;600&family=Ubuntu:wght@400;500&family=Nunito:wght@400;600&display=swap');
+          `}</style>
+          <Select
+            defaultValue='Roboto'
+            onValueChange={value => {
+              if (contentRef.current) {
+                contentRef.current.style.fontFamily = value;
+              }
+            }}
+          >
+            <SelectTrigger className='w-full sm:w-[180px] bg-white rounded-lg border-2 border-gray-200 hover:border-gray-300 transition-colors duration-200 focus:ring-2 focus:ring-blue-500 focus:border-transparent'>
+              <SelectValue placeholder='Pilih Font' />
+            </SelectTrigger>
+            <SelectContent>
+              <SelectItem value='Roboto'>Roboto</SelectItem>
+              <SelectItem value='Open Sans'>Open Sans</SelectItem>
+              <SelectItem value='Lato'>Lato</SelectItem>
+              <SelectItem value='Source Sans Pro'>Source Sans Pro</SelectItem>
+              <SelectItem value='Merriweather'>Merriweather</SelectItem>
+              <SelectItem value='Playfair Display'>Playfair Display</SelectItem>
+              <SelectItem value='Poppins'>Poppins</SelectItem>
+              <SelectItem value='Montserrat'>Montserrat</SelectItem>
+              <SelectItem value='Raleway'>Raleway</SelectItem>
+              <SelectItem value='Ubuntu'>Ubuntu</SelectItem>
+              <SelectItem value='Nunito'>Nunito</SelectItem>
+              <SelectItem value='Arial'>Arial</SelectItem>
+              <SelectItem value='Times New Roman'>Times New Roman</SelectItem>
+              <SelectItem value='Helvetica'>Helvetica</SelectItem>
+            </SelectContent>
+          </Select>
           <Button
             className='gap-2 w-full sm:w-auto'
             onClick={() => handleDownloadPDF()}
@@ -148,7 +173,7 @@ export const CVPreview = ({ data }: CVPreviewProps) => {
           }}
         >
           {/* Header Section */}
-          <header className='space-y-1 text-center border-b pb-2'>
+          <header className='space-y-1 pt-1 text-center border-b pb-2'>
             <h1 className='text-xl sm:text-2xl font-bold uppercase tracking-wide leading-none'>
               {data.personalInfo?.fullName}
             </h1>
@@ -180,20 +205,28 @@ export const CVPreview = ({ data }: CVPreviewProps) => {
               <h2 className='text-base sm:text-lg font-semibold border-b leading-none'>
                 WORK EXPERIENCE
               </h2>
-              <div className='space-y-2 pt-2'>
+              <div className='space-y-0 pt-1'>
                 {data.workExperience.map((exp, index) => (
-                  <div key={index} className='flex flex-col gap-y-1 sm:gap-y-2'>
-                    <div className='flex flex-col sm:flex-row justify-between leading-tight'>
+                  <div
+                    key={index}
+                    className='flex flex-col gap-y-1 sm:gap-y-2 mb-2'
+                  >
+                    <div className='flex flex-col mt-2 sm:flex-row justify-between leading-tight'>
                       <div className='flex flex-col'>
                         <h3 className='font-semibold'>{exp.companyName}</h3>
-                        <p className='text-sm sm:text-md'>{exp.position}</p>
+                        <div className='flex flex-col'>
+                          <p className='text-sm sm:text-md'>{exp.position}</p>
+                          <p className='text-xs sm:text-sm text-gray-600'>{exp.employmentType}</p>
+                        </div>
                       </div>
                       <div className='text-left sm:text-right mt-1 sm:mt-0'>
                         <div className='flex flex-col text-xs sm:text-sm'>
                           <p>{exp.location}</p>
                           <p>
-                            {format(exp.startYear, 'MMM yyyy')} -{' '}
-                            {formatDate(exp.endYear, exp.isCurrentlyWorking)}
+                            {exp.startYear && format(exp.startYear, 'MMM yyyy')}{' '}
+                            -{' '}
+                            {exp.endYear &&
+                              formatDate(exp.endYear, exp.isCurrentlyWorking)}
                           </p>
                         </div>
                       </div>
@@ -203,7 +236,7 @@ export const CVPreview = ({ data }: CVPreviewProps) => {
                         {exp.description.map((desc, i) => (
                           <div key={i} className='flex'>
                             <span className='mr-2'>•</span>
-                            <p className='text-justify'>{desc}</p>
+                            <p className='text-start'>{desc}</p>
                           </div>
                         ))}
                       </div>
@@ -220,7 +253,7 @@ export const CVPreview = ({ data }: CVPreviewProps) => {
               <h2 className='text-base sm:text-lg font-semibold border-b leading-none mt-1'>
                 CERTIFICATIONS
               </h2>
-              <div className='space-y-1'>
+              <div className='space-y-0 pt-1'>
                 {data.certifications.map((cert, index) => (
                   <div
                     key={index}
@@ -249,7 +282,7 @@ export const CVPreview = ({ data }: CVPreviewProps) => {
               <h2 className='text-base sm:text-lg font-semibold border-b leading-none mt-1'>
                 EDUCATION
               </h2>
-              <div className='space-y-1'>
+              <div className='space-y-0 pt-1'>
                 {data.education.map((edu, index) => (
                   <div
                     key={index}
@@ -276,8 +309,9 @@ export const CVPreview = ({ data }: CVPreviewProps) => {
                     <div className='text-left sm:text-right mt-1 sm:mt-0'>
                       <p className='text-xs sm:text-sm'>{edu.location}</p>
                       <p className='text-xs sm:text-sm'>
-                        {format(edu.startYear, 'MMM yyyy')} -{' '}
-                        {formatDate(edu.endYear, edu.isCurrentlyStudying)}
+                        {edu.startYear && format(edu.startYear, 'MMM yyyy')} -{' '}
+                        {edu.endYear &&
+                          formatDate(edu.endYear, edu.isCurrentlyStudying)}
                       </p>
                     </div>
                   </div>
@@ -292,7 +326,7 @@ export const CVPreview = ({ data }: CVPreviewProps) => {
               <h2 className='text-base sm:text-lg font-semibold border-b leading-none mt-1'>
                 ORGANIZATIONS
               </h2>
-              <div className='space-y-2 pt-2'>
+              <div className='space-y-0 pt-1'>
                 {data.organizations.map((org, index) => (
                   <div key={index} className='flex flex-col gap-y-1 sm:gap-y-2'>
                     <div className='flex flex-col sm:flex-row justify-between leading-tight'>
@@ -306,8 +340,10 @@ export const CVPreview = ({ data }: CVPreviewProps) => {
                         <div className='flex flex-col text-xs sm:text-sm'>
                           <p>{org.location}</p>
                           <p>
-                            {format(org.startYear, 'MMM yyyy')} -{' '}
-                            {formatDate(org.endYear, org.isCurrentlyActive)}
+                            {org.startYear && format(org.startYear, 'MMM yyyy')}{' '}
+                            -{' '}
+                            {org.endYear &&
+                              formatDate(org.endYear, org.isCurrentlyActive)}
                           </p>
                         </div>
                       </div>
@@ -329,7 +365,7 @@ export const CVPreview = ({ data }: CVPreviewProps) => {
               <h2 className='text-base sm:text-lg font-semibold border-b leading-none mt-1'>
                 AWARDS
               </h2>
-              <div className='space-y-1'>
+              <div className='space-y-0 pt-1'>
                 {data.awards.map((award, index) => (
                   <div
                     key={index}
@@ -345,7 +381,7 @@ export const CVPreview = ({ data }: CVPreviewProps) => {
                     </div>
                     <div className='text-left sm:text-right mt-1 sm:mt-0'>
                       <p className='text-xs sm:text-sm leading-tight'>
-                        {format(award.year, 'MMM yyyy')}
+                        {award.year && format(award.year, 'MMM yyyy')}
                       </p>
                     </div>
                   </div>
@@ -360,7 +396,7 @@ export const CVPreview = ({ data }: CVPreviewProps) => {
               <h2 className='text-base sm:text-lg font-semibold border-b leading-none mt-1'>
                 SKILLS
               </h2>
-              <div className='space-y-2 pt-2'>
+              <div className='space-y-0 pt-1'>
                 {data.skills.map((skill, index) => (
                   <div className='flex flex-col text-xs sm:text-sm' key={index}>
                     {skill.hardSkill && (
@@ -393,10 +429,10 @@ export const CVPreview = ({ data }: CVPreviewProps) => {
               <h2 className='text-base sm:text-lg font-semibold border-b leading-none mt-1'>
                 LANGUAGES
               </h2>
-              <div className='space-y-2 pt-2'>
+              <div className='space-y-0 pt-1'>
                 {data.languages.map((language, index) => (
                   <div
-                    className='flex flex-col text-xs sm:text-sm mb-[-8px]'
+                    className='flex flex-col text-xs sm:text-sm mb-[1px]'
                     key={index}
                   >
                     <p className='font-semibold'>
@@ -415,7 +451,7 @@ export const CVPreview = ({ data }: CVPreviewProps) => {
               <h2 className='text-base sm:text-lg font-semibold border-b leading-none mt-1'>
                 REFERENCES
               </h2>
-              <div className='space-y-2 pt-2'>
+              <div className='space-y-0 pt-1'>
                 {data.references.map((ref, index) => (
                   <div
                     key={index}

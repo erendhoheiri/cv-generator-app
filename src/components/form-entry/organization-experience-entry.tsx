@@ -5,7 +5,7 @@ import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Textarea } from '@/components/ui/textarea';
 import { Trash2 } from 'lucide-react';
-import { YearPickerPopover } from '@/lib/year-picker';
+import { MonthYearPicker } from '@/lib/month-year-picker';
 
 interface OrganizationExperienceEntryProps {
   experience: OrganizationExperience;
@@ -49,12 +49,12 @@ export function OrganizationExperienceEntry({
             />
           </div>
           <div className='grid grid-cols-1 sm:grid-cols-2 gap-4'>
-            <YearPickerPopover
+            <MonthYearPicker
               value={experience.startYear}
               onChange={date => onChange({ ...experience, startYear: date })}
               placeholder='Select start month/year'
             />
-            <YearPickerPopover
+            <MonthYearPicker
               value={experience.endYear}
               onChange={date => onChange({ ...experience, endYear: date })}
               placeholder='Select end month/year'
@@ -64,6 +64,7 @@ export function OrganizationExperienceEntry({
           <Textarea
             placeholder='Activity description and achievements in the organization'
             value={experience.description}
+            className='min-h-[200px]'
             onChange={e =>
               onChange({ ...experience, description: e.target.value })
             }

@@ -3,7 +3,7 @@
     "fullName": "Eren Dhoheiri",
     "email": "dhoheiri@gmail.com",
     "phone": "+6282359024588",
-    "linkedin": "https://www.linkedin.com/in/erendhoheiri/",
+    "linkedin": "https://www.linkedin.com/in/erendhoheiri",
     "website": "",
     "address": "Tangerang, Banten."
   },
@@ -46,10 +46,10 @@
       "endYear": "2021-10-31T17:00:00.000Z",
       "location": "Remote",
       "description": [
-        "Develop supply app platform with ReactJS, Antdesign & Redux.",
-        "Develop a Bizzy Connect Services with NodeJS, AWS Lambda, and Serverless.",
-        "Develop services with event-driven architecture (AWS SNS & SQS).",
-        "Collaborate with Product Manager, QA, and Scrum Master to fulfill the business needs."
+        "Build and maintain a supply management application using React for the frontend, Ant Design for UI components, and Redux for state management.",
+        "Create backend services using Node.js that run on AWS Lambda with a serverless architecture.",
+        "Develop message queuing systems using AWS SNS and SQS to handle asynchronous processes.",
+        "Work closely with cross-functional teams including designers, product managers, and fellow developers to translate business requirements into technical solutions"
       ],
       "isCurrentlyWorking": false,
       "employmentType": "Full-time",
@@ -61,10 +61,9 @@
       "endYear": "2020-11-30T17:00:00.000Z",
       "location": "Jakarta",
       "description": [
-        "Develop and maintain a website with Apostrophe Framework.",
-        "Build reusable code and libraries for future use.",
-        "Assure that all user input is validated before submitting to back-end",
-        "Work closely with solution analysts to fulfill the business needs."
+        "Build and update websites using Apostrophe CMS, creating user-friendly content management systems.",
+        "Create and maintain a collection of standardized code components and functions that can be easily reused across different projects.",
+        "Team up with analysts to understand exactly what the business needs and turn those requirements into working features."
       ],
       "isCurrentlyWorking": false,
       "employmentType": "Contract",
@@ -76,13 +75,28 @@
       "endYear": "2021-03-31T17:00:00.000Z",
       "location": "Jakarta",
       "description": [
-        " Develop and maintain both web or mobile applications for clients.",
-        "Collaborate with the rest of the team to ensure applications align with client needs.",
-        "Usual development using: ReactJs, Redux, React Native, Lumen, NodeJS, PostgreSQL."
+        "Build responsive and interactive front-end interfaces using ReactJS and implement state management with Redux",
+        "Offer insights on technology choices and implementation strategies to support successful project outcomes.",
+        "Implement best practices in code organization, testing, and deployment across the entire technology stack",
+        "Work closely with cross-functional teams including designers, product managers, and fellow developers to translate business requirements into technical solutions"
       ],
       "isCurrentlyWorking": false,
       "employmentType": "",
       "position": "Software Engineer"
+    },
+    {
+      "companyName": "Domosquare",
+      "startYear": "2018-06-30T17:00:00.000Z",
+      "endYear": "2018-11-30T17:00:00.000Z",
+      "location": "Yogyakarta",
+      "description": [
+        "Handling multiple priorities project and maintaining quality standards across different business units.",
+        "Present findings through well-structured reports to support informed decision-making.",
+        "Research and gather documentation on company position in the industry."
+      ],
+      "isCurrentlyWorking": false,
+      "employmentType": "Internship",
+      "position": "Business Analyst"
     }
   ],
   "certifications": [
@@ -114,5 +128,27 @@
     }
   ],
   "awards": [],
-  "skills": []
+  "skills": [
+    {
+      "hardSkill": "Frontend Development, Technical Leadership, Project Management, Version Control, Testing and Debugging",
+      "softSkill": "Engineering Management, Leadership, Communication, Problem-Solving, Adaptability, Decision-Making, Team Team Collaboration, Mentorship",
+      "softwareSkill": "IDEs, Frontend Frameworks, Project Management Tools (JIRA, Trello, Clickup), Collaboration Tools"
+    }
+  ],
+  "languages": [
+    { "name": "Bahasa Indonesia", "level": "Native" },
+    { "name": "English", "level": "Intermediate" }
+  ],
+  "sectionOrder": [
+    "objective",
+    "personal",
+    "experience",
+    "certifications",
+    "education",
+    "organizations",
+    "awards",
+    "skills",
+    "languages",
+    "references"
+  ]
 }

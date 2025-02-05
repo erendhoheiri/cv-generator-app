@@ -28,7 +28,7 @@ export function SkillEntry({ value, onChange }: SkillEntryProps) {
             placeholder='Enter hard skills (e.g. Programming, Data Analysis)'
             value={value.hardSkill}
             onChange={e => handleChange('hardSkill', e.target.value)}
-            className='w-full'
+            className='w-full resize-none overflow-visible'
           />
         </div>
 
@@ -39,7 +39,7 @@ export function SkillEntry({ value, onChange }: SkillEntryProps) {
             placeholder='Enter soft skills (e.g. Leadership, Communication)'
             value={value.softSkill}
             onChange={e => handleChange('softSkill', e.target.value)}
-            className='w-full'
+            className='w-full resize-none overflow-visible'
           />
         </div>
 
@@ -50,7 +50,7 @@ export function SkillEntry({ value, onChange }: SkillEntryProps) {
             placeholder='Enter software skills (e.g. MS Office, Adobe)'
             value={value.softwareSkill}
             onChange={e => handleChange('softwareSkill', e.target.value)}
-            className='w-full'
+            className='w-full resize-none overflow-visible'
           />
         </div>
       </div>
