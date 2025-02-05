@@ -13,8 +13,33 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: 'CV Generator',
-  description: 'Generate your CV in seconds'
+  title: 'ForPeople! - Free Resume Generator',
+  description:
+    'Create stunning, ATS-friendly resumes that capture attention and showcase your potential. Simple, elegant, and completely free Resume generator.',
+  keywords:
+    'Resume generator, resume builder, professional Resume, ats friendly resume, free Resume maker',
+  authors: [{ name: 'Eren Dhoheiri' }],
+  creator: 'Eren Dhoheiri',
+  publisher: 'ForPeople!',
+  openGraph: {
+    type: 'website',
+    locale: 'en_US',
+    url: 'https://Resume-generator-app-sigma.vercel.app',
+    title: 'ForPeople! - Free Resume Generator',
+    description:
+      'Create stunning, ATS-friendly resumes that capture attention and showcase your potential. Simple, elegant, and completely free Resume generator.',
+    siteName: 'ForPeople!'
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'ForPeople! - Professional Resume Generator',
+    description:
+      'Create stunning, ATS-friendly resumes that capture attention and showcase your potential. Simple, elegant, and completely free Resume generator.'
+  },
+  robots: {
+    index: true,
+    follow: true
+  }
 };
 
 export default function RootLayout({

@@ -32,26 +32,34 @@ export default function CVGenerator() {
   const [cvData, setCvData] = useLocalStorage<CV>('cvData', initialData);
 
   return (
-    <div className='flex flex-col min-h-screen'>
-      <header className='px-4 lg:px-6 h-16 flex items-center border-b'>
-        <Link href='/' className='flex items-center gap-2 font-semibold'>
-          <FileText className='h-6 w-6' />
-          <span>ForPeople!</span>
+    <div className='flex flex-col min-h-screen bg-gradient-to-b from-zinc-50 to-zinc-100 dark:from-zinc-900 dark:to-zinc-950'>
+      <header className='sticky top-0 z-50 px-6 h-16 flex items-center border-b border-zinc-200 dark:border-zinc-800 backdrop-blur-sm bg-white/70 dark:bg-zinc-900/70 supports-[backdrop-filter]:bg-white/60'>
+        <Link
+          href='/'
+          className='flex items-center gap-3 font-semibold hover:opacity-80 transition-opacity'
+        >
+          <FileText className='h-6 w-6 text-slate-700' />
+          <span className='text-slate-700 text-lg tracking-tight'>
+            ForPeople!
+          </span>
         </Link>
-        <nav className='ml-auto flex gap-4 sm:gap-6'>
-          <Button asChild className='text-white bg-red-500 hover:bg-red-600'>
-            <Link href='/'>
-              <ArrowLeft className='h-4 w-4' />
+        <nav className='ml-auto'>
+          <Button asChild variant='ghost' className='group'>
+            <Link
+              href='/'
+              className='flex items-center gap-2 text-zinc-700 dark:text-zinc-300'
+            >
+              <ArrowLeft className='h-4 w-4 transition-transform group-hover:-translate-x-1' />
               Back to Home
             </Link>
           </Button>
         </nav>
       </header>
-      <div className='min-h-screen grid md:grid-cols-[550px,1fr]'>
-        <div className='border-r overflow-auto'>
+      <div className='min-h-screen grid md:grid-cols-[minmax(500px,600px),1fr] transition-all duration-300'>
+        <div className='border-r border-zinc-200 dark:border-zinc-800 overflow-y-auto bg-white dark:bg-zinc-900 max-h-[calc(100vh-4rem)] sticky top-16'>
           <CVForm data={cvData} onChange={setCvData} />
         </div>
-        <div className='bg-gray-200'>
+        <div className='bg-zinc-100 dark:bg-zinc-800 overflow-y-auto max-h-[calc(100vh-4rem)] sticky top-16'>
           <CVPreview data={cvData} />
         </div>
       </div>

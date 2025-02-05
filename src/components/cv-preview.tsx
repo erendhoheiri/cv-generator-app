@@ -112,9 +112,10 @@ export const CVPreview = ({ data }: CVPreviewProps) => {
 
   return (
     <div className='h-full flex flex-col'>
-      <div className='border-b p-2 sm:p-4 flex flex-col sm:flex-row items-center justify-between gap-2'>
-        <div className='flex gap-2' />
-        <div className='flex flex-wrap justify-center items-center gap-2 sm:gap-4 w-full sm:w-auto'>
+      <div className='sticky top-0 border-b border-zinc-200 dark:border-zinc-800 p-2 flex flex-col sm:flex-row items-center justify-between gap-2 backdrop-blur-sm bg-white/70 dark:bg-zinc-900/70'>
+        <div className='flex gap-2'></div>
+
+        <div className='flex flex-wrap justify-center items-center gap-4 w-full sm:w-auto'>
           <style jsx global>{`
             @import url('https://fonts.googleapis.com/css2?family=Lato:wght@400;700&family=Merriweather:wght@400;700&family=Open+Sans:wght@400;600&family=Playfair+Display:wght@400;700&family=Roboto:wght@400;500&family=Source+Sans+Pro:wght@400;600&family=Poppins:wght@400;500;600&family=Montserrat:wght@400;500;600&family=Raleway:wght@400;500;600&family=Ubuntu:wght@400;500&family=Nunito:wght@400;600&display=swap');
           `}</style>
@@ -126,10 +127,10 @@ export const CVPreview = ({ data }: CVPreviewProps) => {
               }
             }}
           >
-            <SelectTrigger className='w-full sm:w-[180px] bg-white rounded-lg border-2 border-gray-200 hover:border-gray-300 transition-colors duration-200 focus:ring-2 focus:ring-blue-500 focus:border-transparent'>
+            <SelectTrigger className='w-[180px] bg-white/50 dark:bg-zinc-800/50 backdrop-blur-sm border-zinc-200 dark:border-zinc-700 transition-all hover:border-zinc-300 dark:hover:border-zinc-600'>
               <SelectValue placeholder='Pilih Font' />
             </SelectTrigger>
-            <SelectContent>
+            <SelectContent className='bg-white dark:bg-zinc-900 border-zinc-200 dark:border-zinc-700'>
               <SelectItem value='Roboto'>Roboto</SelectItem>
               <SelectItem value='Open Sans'>Open Sans</SelectItem>
               <SelectItem value='Lato'>Lato</SelectItem>
@@ -146,21 +147,24 @@ export const CVPreview = ({ data }: CVPreviewProps) => {
               <SelectItem value='Helvetica'>Helvetica</SelectItem>
             </SelectContent>
           </Select>
+
           <Button
-            className='gap-2 w-full sm:w-auto'
             onClick={() => handleDownloadPDF()}
+            className='group relative overflow-hidden bg-zinc-900 dark:bg-zinc-100 text-white dark:text-zinc-900 hover:bg-zinc-800 dark:hover:bg-zinc-200 transition-all duration-300'
           >
-            <Download className='h-4 w-4' />
-            Download PDF
+            <span className='flex items-center gap-2'>
+              <Download className='h-4 w-4 transition-transform group-hover:translate-y-1' />
+              Download PDF
+            </span>
           </Button>
         </div>
       </div>
 
-      <div className='flex-1 p-2 sm:p-4 md:p-8 bg-gray-100 overflow-auto'>
+      <div className='flex-1 p-2 md:p-8 bg-zinc-100 dark:bg-zinc-800 overflow-auto'>
         <div
           ref={contentRef}
           id='cv-content'
-          className='max-w-[794px] mx-auto bg-white'
+          className='max-w-[794px] mx-auto bg-white '
           style={{
             fontSize: `${fontSize}px`,
             minHeight: '297mm',
