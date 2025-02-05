@@ -214,9 +214,12 @@ export const CVPreview = ({ data }: CVPreviewProps) => {
                     <div className='flex flex-col mt-2 sm:flex-row justify-between leading-tight'>
                       <div className='flex flex-col'>
                         <h3 className='font-semibold'>{exp.companyName}</h3>
-                        <div className='flex flex-col'>
+                        <div className='flex '>
                           <p className='text-sm sm:text-md'>{exp.position}</p>
-                          <p className='text-xs sm:text-sm text-gray-600'>{exp.employmentType}</p>
+                          <span className='mx-1'>-</span>
+                          <p className='text-xs sm:text-sm text-gray-600'>
+                            {exp.employmentType}
+                          </p>
                         </div>
                       </div>
                       <div className='text-left sm:text-right mt-1 sm:mt-0'>
