@@ -1,8 +1,8 @@
 'use client';
 
-import React, { useState, useRef } from 'react';
+import React, { useRef } from 'react';
 import { Button } from '@/components/ui/button';
-import { Download, Plus, Minus } from 'lucide-react';
+import { Download } from 'lucide-react';
 import { format } from 'date-fns';
 import { CVPreviewProps } from '../types/cv';
 import { useReactToPrint } from 'react-to-print';
@@ -14,12 +14,12 @@ import {
   SelectValue
 } from '@/components/ui/select';
 
-const MIN_FONT_SIZE = 12;
-const MAX_FONT_SIZE = 24;
-const DEFAULT_FONT_SIZE = 16;
+// const MIN_FONT_SIZE = 12;
+// const MAX_FONT_SIZE = 24;
+// const DEFAULT_FONT_SIZE = 16;
 
 export const CVPreview = ({ data }: CVPreviewProps) => {
-  const [fontSize, setFontSize] = useState(DEFAULT_FONT_SIZE);
+  // const [fontSize, setFontSize] = useState(DEFAULT_FONT_SIZE);
   const contentRef = useRef<HTMLDivElement>(null);
 
   const handleDownloadPDF = useReactToPrint({
@@ -53,13 +53,13 @@ export const CVPreview = ({ data }: CVPreviewProps) => {
     }
   });
 
-  const handleFontSizeChange = (increment: boolean) => {
-    setFontSize(prev =>
-      increment
-        ? Math.min(prev + 1, MAX_FONT_SIZE)
-        : Math.max(prev - 1, MIN_FONT_SIZE)
-    );
-  };
+  // const handleFontSizeChange = (increment: boolean) => {
+  //   setFontSize(prev =>
+  //     increment
+  //       ? Math.min(prev + 1, MAX_FONT_SIZE)
+  //       : Math.max(prev - 1, MIN_FONT_SIZE)
+  //   );
+  // };
 
   const renderContactInfo = () => {
     const { phone, email, linkedin, website } = data.personalInfo || {};
@@ -166,7 +166,7 @@ export const CVPreview = ({ data }: CVPreviewProps) => {
           id='cv-content'
           className='max-w-[794px] mx-auto bg-white '
           style={{
-            fontSize: `${fontSize}px`,
+            // fontSize: `${fontSize}px`,
             minHeight: '297mm',
             width: '100%',
             maxWidth: '210mm',

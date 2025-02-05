@@ -3,14 +3,7 @@
 import React from 'react';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent } from '@/components/ui/card';
-import {
-  FileText,
-  Star,
-  Download,
-  Palette,
-  Clock,
-  ArrowRight
-} from 'lucide-react';
+import { FileText, Download, Palette, Clock, ArrowRight } from 'lucide-react';
 import Image from 'next/image';
 import Link from 'next/link';
 import { motion } from 'framer-motion';
