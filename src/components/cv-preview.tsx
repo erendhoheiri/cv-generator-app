@@ -24,17 +24,19 @@ export const CVPreview = ({ data }: CVPreviewProps) => {
     pageStyle: `
     @page {
       size: A4 portrait;
-      margin: 5mm;
+      margin-top: 10mm;
+      margin-bottom: 10mm;
+      margin-left: 2mm;
+      margin-right: 2mm;
     }
-   @media print {
-        section {
-          display: block;
-          break-inside: avoid;
-          page-break-inside: avoid;
-          margin-top: 30px;
-        }
-        
+    @page :first {
+      margin-top: 0;
+    }
+    @media print {
+      body { 
+        -webkit-print-color-adjust: exact; 
       }
+    }
     `,
     onAfterPrint: () => {
       console.log('PDF downloaded successfully');
@@ -140,7 +142,9 @@ export const CVPreview = ({ data }: CVPreviewProps) => {
             width: '100%',
             maxWidth: '210mm',
             padding: '10mm',
-            boxSizing: 'border-box'
+            boxSizing: 'border-box',
+            pageBreakAfter: 'always',
+            pageBreakInside: 'avoid'
           }}
         >
           {/* Header Section */}
@@ -172,7 +176,7 @@ export const CVPreview = ({ data }: CVPreviewProps) => {
 
           {/* Work Experience Section */}
           {data.workExperience.length > 0 && (
-            <section className='mt-4 sm:mt-6 section-break'>
+            <section className='mt-4 sm:mt-6 page-break-inside-avoid'>
               <h2 className='text-base sm:text-lg font-semibold border-b leading-none'>
                 WORK EXPERIENCE
               </h2>
@@ -212,7 +216,7 @@ export const CVPreview = ({ data }: CVPreviewProps) => {
 
           {/* Certifications Section */}
           {data.certifications.length > 0 && (
-            <section className='mt-4 sm:mt-6 section-break'>
+            <section className='mt-4 sm:mt-6 page-break-inside-avoid'>
               <h2 className='text-base sm:text-lg font-semibold border-b leading-none mt-1'>
                 CERTIFICATIONS
               </h2>
@@ -241,7 +245,7 @@ export const CVPreview = ({ data }: CVPreviewProps) => {
 
           {/* Education Section */}
           {data.education.length > 0 && (
-            <section className='mt-4 sm:mt-6 section-break'>
+            <section className='mt-4 sm:mt-6 page-break-inside-avoid'>
               <h2 className='text-base sm:text-lg font-semibold border-b leading-none mt-1'>
                 EDUCATION
               </h2>
@@ -284,7 +288,7 @@ export const CVPreview = ({ data }: CVPreviewProps) => {
 
           {/* Organizations Section */}
           {data.organizations.length > 0 && (
-            <section className='mt-4 sm:mt-6 section-break'>
+            <section className='mt-4 sm:mt-6 page-break-inside-avoid'>
               <h2 className='text-base sm:text-lg font-semibold border-b leading-none mt-1'>
                 ORGANIZATIONS
               </h2>
@@ -321,7 +325,7 @@ export const CVPreview = ({ data }: CVPreviewProps) => {
 
           {/* Awards Section */}
           {data.awards.length > 0 && (
-            <section className='mt-4 sm:mt-6 section-break'>
+            <section className='mt-4 sm:mt-6 page-break-inside-avoid'>
               <h2 className='text-base sm:text-lg font-semibold border-b leading-none mt-1'>
                 AWARDS
               </h2>
@@ -352,7 +356,7 @@ export const CVPreview = ({ data }: CVPreviewProps) => {
 
           {/* Skills Section */}
           {data?.skills?.length > 0 && (
-            <section className='mt-4 sm:mt-6 section-break'>
+            <section className='mt-4 sm:mt-6 page-break-inside-avoid'>
               <h2 className='text-base sm:text-lg font-semibold border-b leading-none mt-1'>
                 SKILLS
               </h2>
@@ -385,7 +389,7 @@ export const CVPreview = ({ data }: CVPreviewProps) => {
 
           {/* Languages Section */}
           {data?.languages?.length > 0 && (
-            <section className='mt-4 sm:mt-6 section-break'>
+            <section className='mt-4 sm:mt-6 page-break-inside-avoid'>
               <h2 className='text-base sm:text-lg font-semibold border-b leading-none mt-1'>
                 LANGUAGES
               </h2>
@@ -407,7 +411,7 @@ export const CVPreview = ({ data }: CVPreviewProps) => {
 
           {/* References Section */}
           {data?.references?.length > 0 && (
-            <section className='mt-4 sm:mt-6 section-break'>
+            <section className='mt-4 sm:mt-6 page-break-inside-avoid'>
               <h2 className='text-base sm:text-lg font-semibold border-b leading-none mt-1'>
                 REFERENCES
               </h2>
