@@ -21,8 +21,8 @@ export default function CVGeneratorLanding() {
           href='/'
           className='flex items-center gap-3 font-semibold hover:opacity-80 transition-opacity'
         >
-          <FileText className='h-6 w-6 text-slate-700' />
-          <span className='text-slate-700 text-lg tracking-tight'>
+          <FileText className='h-6 w-6 text-teal-700' />
+          <span className='text-teal-700 text-lg tracking-tight'>
             ForPeople!
           </span>
         </Link>
@@ -31,7 +31,7 @@ export default function CVGeneratorLanding() {
       <main className='flex-1 pt-20'>
         {/* Hero Section */}
         <section className='min-h-[90vh] flex items-center relative overflow-hidden'>
-          <div className='absolute inset-0 bg-[#f0f4f8] -z-10' />
+          <div className='absolute inset-0 bg-slate-50 -z-10' />
           <div className='container px-4 md:px-6 mx-auto'>
             <div className='flex flex-col lg:flex-row items-center gap-12 py-16'>
               <motion.div
@@ -40,12 +40,13 @@ export default function CVGeneratorLanding() {
                 transition={{ delay: 0.2 }}
                 className='flex-1 space-y-8'
               >
-                <h1 className='text-4xl md:text-6xl font-bold text-slate-700 leading-tight'>
-                  Craft Your Future with
-                  <span className='block mt-2 bg-clip-text text-transparent bg-gradient-to-r from-slate-700 to-slate-400'>
-                    Professional Resume
+                <h1 className='text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-teal-700 leading-tight'>
+                  Elevate Your Career with
+                  <span className='block mt-2 bg-clip-text text-transparent bg-gradient-to-r from-teal-800 to-slate-400'>
+                    a Standout Resume
                   </span>
                 </h1>
+
                 <p className='text-lg md:text-xl text-slate-600 leading-relaxed max-w-xl'>
                   Create stunning, ATS-friendly resumes that capture attention
                   and showcase your potential. Simple, elegant, and completely
@@ -57,11 +58,11 @@ export default function CVGeneratorLanding() {
                 >
                   <Button
                     size='lg'
-                    className='bg-slate-700 hover:bg-slate-600 text-white px-8 py-6 text-lg rounded-full transition-all duration-300 flex items-center gap-2 group'
+                    className='bg-teal-800 hover:bg-teal-600 text-white px-8 py-6 text-lg rounded-full transition-all duration-300 flex items-center gap-2 group'
                     asChild
                   >
-                    <Link href='/cv-maker'>
-                      Start Creating
+                    <Link href='/create'>
+                      Make It Happen
                       <ArrowRight className='h-5 w-5 group-hover:translate-x-1 transition-transform' />
                     </Link>
                   </Button>
@@ -75,11 +76,11 @@ export default function CVGeneratorLanding() {
                 className='flex-1'
               >
                 <div className='relative'>
-                  <div className='absolute inset-0 bg-gradient-to-tr from-slate-100 to-transparent rounded-2xl transform rotate-3' />
+                  <div className='absolute inset-30 bg-gradient-to-tr from-teal-100 to-transparent rounded-2xl transform rotate-3' />
                   <Image
-                    src='/illustration.jpeg'
-                    width={650}
-                    height={650}
+                    src='/hiring.svg'
+                    width={500}
+                    height={500}
                     alt='CV Preview'
                     className='rounded-2xl shadow-xl hover:shadow-2xl transition-shadow duration-300'
                   />
@@ -98,10 +99,10 @@ export default function CVGeneratorLanding() {
               viewport={{ once: true }}
               className='text-center space-y-4 mb-16'
             >
-              <h2 className='text-3xl md:text-4xl font-bold text-zinc-800'>
+              <h2 className='text-3xl md:text-4xl font-bold text-teal-800'>
                 Craft Your Perfect Resume
               </h2>
-              <p className='text-lg text-zinc-600 max-w-2xl mx-auto'>
+              <p className='text-lg text-slate-600 max-w-2xl mx-auto'>
                 Everything you need to create a professional Resume that makes
                 an impact
               </p>
@@ -137,11 +138,11 @@ export default function CVGeneratorLanding() {
                 >
                   <Card className='border-none shadow-lg hover:shadow-xl transition-shadow duration-300'>
                     <CardContent className='p-8 flex flex-col items-center text-center space-y-4'>
-                      <feature.icon className='h-12 w-12 text-zinc-800' />
-                      <h3 className='text-xl font-semibold text-zinc-800'>
+                      <feature.icon className='h-12 w-12 text-teal-800' />
+                      <h3 className='text-xl font-semibold text-teal-800'>
                         {feature.title}
                       </h3>
-                      <p className='text-zinc-600'>{feature.description}</p>
+                      <p className='text-slate-600'>{feature.description}</p>
                     </CardContent>
                   </Card>
                 </motion.div>
@@ -151,7 +152,7 @@ export default function CVGeneratorLanding() {
         </section>
 
         {/* Footer */}
-        <footer className='bg-zinc-900 text-white py-16'>
+        <footer className='bg-slate-900 text-white py-16'>
           <div className='container px-4 md:px-6 mx-auto'>
             <div className='flex flex-col md:flex-row justify-between items-start gap-8'>
               <div className='space-y-4'>
@@ -162,7 +163,7 @@ export default function CVGeneratorLanding() {
                   <FileText className='h-6 w-6' />
                   <span className='text-lg'>ForPeople!</span>
                 </Link>
-                <p className='text-zinc-400 max-w-xs'>
+                <p className='text-slate-400 max-w-xs'>
                   Empowering careers through professional resume creation
                 </p>
               </div>
@@ -173,13 +174,13 @@ export default function CVGeneratorLanding() {
                   <div className='flex flex-col gap-2'>
                     <Link
                       href='#'
-                      className='text-zinc-400 hover:text-white transition-colors'
+                      className='text-slate-400 hover:text-white transition-colors'
                     >
                       Privacy Policy
                     </Link>
                     <Link
                       href='#'
-                      className='text-zinc-400 hover:text-white transition-colors'
+                      className='text-slate-400 hover:text-white transition-colors'
                     >
                       Terms of Service
                     </Link>
@@ -188,7 +189,7 @@ export default function CVGeneratorLanding() {
               </div>
             </div>
 
-            <div className='border-t border-zinc-800 mt-12 pt-8 text-zinc-400 text-sm'>
+            <div className='border-t border-slate-800 mt-12 pt-8 text-slate-400 text-sm'>
               © {new Date().getFullYear()} ForPeople! All rights reserved.
             </div>
           </div>
