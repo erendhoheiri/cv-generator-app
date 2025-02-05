@@ -4,7 +4,7 @@ import { CVForm } from '@/components/cv-form';
 import { CVPreview } from '@/components/cv-preview';
 import { CV } from '@/types/cv';
 import Link from 'next/link';
-import { FileText, ArrowLeft } from 'lucide-react';
+import { FileText, ArrowLeft, MessageCircle } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { useLocalStorage } from '@/lib/hooks/useLocalStorage';
 
@@ -152,6 +152,16 @@ export default function CVGenerator() {
         <div className='bg-zinc-100 dark:bg-zinc-800 overflow-y-auto max-h-[calc(100vh-4rem)] sticky top-16'>
           <CVPreview data={cvData} />
         </div>
+      </div>
+
+      {/* Floating Button */}
+      <div className='fixed bottom-2 right-2 z-50'>
+        <Link href='https://form.jotform.com/250355193485461' target='_blank'>
+          <Button variant='default' className='flex items-center gap-1'>
+            <MessageCircle className='h-5 w-5' />
+            Give Feedback
+          </Button>
+        </Link>
       </div>
     </div>
   );
