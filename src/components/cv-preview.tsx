@@ -65,12 +65,12 @@ export const CVPreview = ({ data }: CVPreviewProps) => {
     const { phone, email, linkedin, website } = data.personalInfo || {};
     const contacts = [
       phone && (
-        <a key='phone' href={`tel:${phone}`} className='text-blue-500'>
+        <a key='phone' href={`tel:${phone}`} className='text-blue-700'>
           {phone}
         </a>
       ),
       email && (
-        <a key='email' href={`mailto:${email}`} className='text-blue-500'>
+        <a key='email' href={`mailto:${email}`} className='text-blue-700'>
           {email}
         </a>
       ),
@@ -80,7 +80,7 @@ export const CVPreview = ({ data }: CVPreviewProps) => {
           href={linkedin}
           target='_blank'
           rel='noopener noreferrer'
-          className='text-blue-500'
+          className='text-blue-700'
         >
           {linkedin}
         </a>
@@ -91,7 +91,7 @@ export const CVPreview = ({ data }: CVPreviewProps) => {
           href={website}
           target='_blank'
           rel='noopener noreferrer'
-          className='text-blue-500'
+          className='text-blue-700'
         >
           {website}
         </a>
@@ -476,11 +476,11 @@ export const CVPreview = ({ data }: CVPreviewProps) => {
                       <div className='flex flex-col text-xs'>
                         <a
                           href={`mailto:${ref.email}`}
-                          className='text-blue-500'
+                          className='text-blue-700'
                         >
                           {ref.email}
                         </a>
-                        <a href={`tel:${ref.phone}`} className='text-blue-500'>
+                        <a href={`tel:${ref.phone}`} className='text-blue-700'>
                           {ref.phone}
                         </a>
                       </div>
