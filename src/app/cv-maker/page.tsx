@@ -10,21 +10,111 @@ import { useLocalStorage } from '@/lib/hooks/useLocalStorage';
 
 const initialData: CV = {
   personalInfo: {
-    fullName: '',
-    email: '',
-    phone: '',
-    linkedin: '',
-    website: '',
-    address: ''
+    fullName: 'John Smith',
+    email: 'john.smith@email.com',
+    phone: '+1234567890',
+    linkedin: 'https://linkedin.com/in/johnsmith',
+    website: 'https://johnsmith.dev',
+    address: 'San Francisco, CA'
   },
-  objective: '',
-  education: [],
-  workExperience: [],
-  certifications: [],
-  organizations: [],
-  awards: [],
-  skills: [],
-  languages: [],
+  objective:
+    'Passionate software engineer with 5+ years of experience building scalable web applications. Seeking to leverage my technical expertise and leadership skills to drive innovation and deliver high-quality solutions.',
+  education: [
+    {
+      schoolName: 'Stanford University',
+      startYear: new Date('2014-09-01T00:00:00.000Z'),
+      endYear: new Date('2018-06-01T00:00:00.000Z'),
+      location: 'Stanford, CA',
+      level: 'Bachelor',
+      program: 'Computer Science',
+      gpaOptional: '3.8',
+      gpaMaximum: '4.0',
+      description: 'Major in Software Engineering, Minor in Business',
+      isCurrentlyStudying: false
+    }
+  ],
+  workExperience: [
+    {
+      companyName: 'Tech Corp',
+      startYear: new Date('2020-01-01T00:00:00.000Z'),
+      endYear: new Date('2024-01-01T00:00:00.000Z'),
+      location: 'San Francisco, CA',
+      description: [
+        'Led development of core platform features used by millions of users',
+        'Managed team of 5 engineers and coordinated with product/design',
+        'Improved system performance by 40% through optimization efforts',
+        'Implemented CI/CD pipeline reducing deployment time by 50%'
+      ],
+      isCurrentlyWorking: true,
+      employmentType: 'Full-time',
+      position: 'Senior Software Engineer'
+    },
+    {
+      companyName: 'Startup Inc',
+      startYear: new Date('2018-06-01T00:00:00.000Z'),
+      endYear: new Date('2019-12-31T00:00:00.000Z'),
+      location: 'New York, NY',
+      description: [
+        'Built responsive web applications using React and Node.js',
+        'Collaborated with UX team to implement pixel-perfect designs',
+        'Wrote unit tests and integration tests to ensure code quality'
+      ],
+      isCurrentlyWorking: false,
+      employmentType: 'Full-time',
+      position: 'Software Engineer'
+    }
+  ],
+  certifications: [
+    {
+      name: 'AWS Solutions Architect',
+      year: new Date('2022-01-01T00:00:00.000Z'),
+      issuer: 'Amazon Web Services'
+    },
+    {
+      name: 'Professional Scrum Master',
+      year: new Date('2021-06-01T00:00:00.000Z'),
+      issuer: 'Scrum.org'
+    }
+  ],
+  organizations: [
+    {
+      organizationName: 'Code for Good',
+      position: 'Technical Lead',
+      startYear: new Date('2019-01-01T00:00:00.000Z'),
+      endYear: new Date('2020-12-31T00:00:00.000Z'),
+      location: 'San Francisco, CA',
+      description:
+        'Led volunteer developer team building applications for non-profits',
+      isCurrentlyActive: false
+    }
+  ],
+  awards: [
+    {
+      name: 'Innovation Award',
+      year: new Date('2022-01-01T00:00:00.000Z'),
+      description:
+        'Awarded for developing novel solution that increased user engagement by 200%'
+    }
+  ],
+  skills: [
+    {
+      hardSkill:
+        'JavaScript, TypeScript, React, Node.js, AWS, Docker, Kubernetes',
+      softSkill:
+        'Leadership, Communication, Problem Solving, Team Collaboration',
+      softwareSkill: 'VS Code, Git, JIRA, Figma, Jenkins'
+    }
+  ],
+  languages: [
+    {
+      name: 'English',
+      level: 'Native'
+    },
+    {
+      name: 'Spanish',
+      level: 'Intermediate'
+    }
+  ],
   references: []
 };
 
