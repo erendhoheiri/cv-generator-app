@@ -13,26 +13,26 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: 'ForPeople! - Free Resume Generator',
+  title: 'JobResume! - Free Resume Generator',
   description:
     'Create stunning, ATS-friendly resumes that capture attention and showcase your potential. Simple, elegant, and completely free Resume generator.',
   keywords:
     'Resume generator, resume builder, professional Resume, ats friendly resume, free Resume maker',
   authors: [{ name: 'Eren Dhoheiri' }],
   creator: 'Eren Dhoheiri',
-  publisher: 'ForPeople!',
+  publisher: 'JobResume!',
   openGraph: {
     type: 'website',
     locale: 'en_US',
     url: 'https://Resume-generator-app-sigma.vercel.app',
-    title: 'ForPeople! - Free Resume Generator',
+    title: 'JobResume! - Free Resume Generator',
     description:
       'Create stunning, ATS-friendly resumes that capture attention and showcase your potential. Simple, elegant, and completely free Resume generator.',
-    siteName: 'ForPeople!'
+    siteName: 'JobResume!'
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'ForPeople! - Professional Resume Generator',
+    title: 'JobResume! - Professional Resume Generator',
     description:
       'Create stunning, ATS-friendly resumes that capture attention and showcase your potential. Simple, elegant, and completely free Resume generator.'
   },

@@ -23,7 +23,7 @@ export default function CVGeneratorLanding() {
         >
           <FileText className='h-6 w-6 text-teal-700' />
           <span className='text-teal-700 text-lg tracking-tight'>
-            ForPeople!
+            JobResume!
           </span>
         </Link>
       </motion.header>
@@ -161,7 +161,7 @@ export default function CVGeneratorLanding() {
                   className='flex items-center gap-2 font-semibold'
                 >
                   <FileText className='h-6 w-6' />
-                  <span className='text-lg'>ForPeople!</span>
+                  <span className='text-lg'>JobResume!</span>
                 </Link>
                 <p className='text-slate-400 max-w-xs'>
                   Empowering careers through professional resume creation
@@ -190,7 +190,7 @@ export default function CVGeneratorLanding() {
             </div>
 
             <div className='border-t border-slate-800 mt-12 pt-8 text-slate-400 text-sm'>
-              © {new Date().getFullYear()} ForPeople! All rights reserved.
+              © {new Date().getFullYear()} JobResume! All rights reserved.
             </div>
           </div>
         </footer>

@@ -130,7 +130,7 @@ export default function CVGenerator() {
         >
           <FileText className='h-6 w-6 text-slate-700' />
           <span className='text-slate-700 text-lg tracking-tight'>
-            ForPeople!
+            JobResume!
           </span>
         </Link>
         <nav className='ml-auto'>
