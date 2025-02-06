@@ -117,7 +117,7 @@ export const CVPreview = ({ data }: CVPreviewProps) => {
 
         <div className='flex flex-wrap justify-center items-center gap-4 w-full sm:w-auto'>
           <style jsx global>{`
-            @import url('https://fonts.googleapis.com/css2?family=Lato:wght@400;700&family=Merriweather:wght@400;700&family=Open+Sans:wght@400;600&family=Playfair+Display:wght@400;700&family=Roboto:wght@400;500&family=Source+Sans+Pro:wght@400;600&family=Inter:wght@400;600display=swap');
+            @import url('https://fonts.googleapis.com/css2?family=Lato:wght@400;700&family=Merriweather:wght@400;700&family=Open+Sans:wght@400;600&family=Playfair+Display:wght@400;700&family=Roboto:wght@400;500&family=Source+Sans+Pro:wght@400;600&family=Inter:wght@400;600&family=Poppins:wght@400;600&family=Montserrat:wght@400;600&family=Raleway:wght@400;600&family=Ubuntu:wght@400;500&family=Nunito:wght@400;600&display=swap');
           `}</style>
           <Select
             defaultValue='Roboto'
