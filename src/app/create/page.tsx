@@ -4,9 +4,10 @@ import { CVForm } from '@/components/cv-form';
 import { CVPreview } from '@/components/cv-preview';
 import { CV } from '@/types/cv';
 import Link from 'next/link';
-import { FileText, ArrowLeft, MessageCircle } from 'lucide-react';
+import { FileText, ArrowLeft, MessageCircle, Info } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { useLocalStorage } from '@/lib/hooks/useLocalStorage';
+import { Alert, AlertDescription } from '@/components/ui/alert';
 
 const initialData: CV = {
   personalInfo: {
@@ -145,6 +146,16 @@ export default function CVGenerator() {
           </Button>
         </nav>
       </header>
+
+      <Alert className='max-w-screen-xl mx-auto mt-4 mb-2 bg-blue-50 dark:bg-blue-900/20 border-blue-200 dark:border-blue-800'>
+        <Info className='h-4 w-4 text-blue-600 dark:text-blue-400' />
+        <AlertDescription className='text-blue-700 dark:text-blue-300'>
+          For the best experience, we recommend using JobResume! on a desktop or
+          laptop computer. The CV builder is optimized for larger screens to
+          provide better editing and preview capabilities.
+        </AlertDescription>
+      </Alert>
+
       <div className='min-h-screen grid md:grid-cols-[minmax(500px,600px),1fr] transition-all duration-300'>
         <div className='border-r border-zinc-200 dark:border-zinc-800 overflow-y-auto bg-white dark:bg-zinc-900 max-h-[calc(100vh-4rem)] sticky top-16'>
           <CVForm data={cvData} onChange={setCvData} />
