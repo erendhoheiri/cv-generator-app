@@ -190,12 +190,14 @@ export default function CVGeneratorLanding() {
             </div>
 
             <div className='border-t border-slate-800 mt-12 pt-8 text-slate-400 text-sm'>
-              © {new Date().getFullYear()} JobResume! All rights reserved. Created by{' '}
-              <Link 
-                href="https://www.linkedin.com/in/erendhoheiri/"
-                className="hover:text-white transition-colors"
-                target="_blank"
-                rel="noopener noreferrer"
+              © {new Date().getFullYear()} JobResume! All rights reserved.
+              <div className='py-1' />
+              Crafted with ⚡ by{' '}
+              <Link
+                href='https://www.linkedin.com/in/erendhoheiri/'
+                className='hover:text-white transition-colors'
+                target='_blank'
+                rel='noopener noreferrer'
               >
                 Eren Dhoheiri
               </Link>
