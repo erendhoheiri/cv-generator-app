@@ -84,7 +84,6 @@ export const MonthYearPicker = React.memo(function MonthYearPicker({
     }
   };
 
-  console.log('ini', value);
   return (
     <Popover>
       <PopoverTrigger asChild>
@@ -97,8 +96,8 @@ export const MonthYearPicker = React.memo(function MonthYearPicker({
           {value ? format(value, 'MMMM yyyy') : placeholder}
         </Button>
       </PopoverTrigger>
-      <PopoverContent className='w-full p-4' align='start'>
-        <div className='grid gap-4'>
+      <PopoverContent className='w-full p-4' align='center'>
+        <div className='w-full grid gap-4 '>
           <Select
             value={selectedMonth.toString()}
             onValueChange={handleMonthChange}
