@@ -117,7 +117,7 @@ export const CVPreview = ({ data }: CVPreviewProps) => {
 
         <div className='flex flex-wrap justify-center items-center gap-4 w-full sm:w-auto'>
           <style jsx global>{`
-            @import url('https://fonts.googleapis.com/css2?family=Lato:wght@400;700&family=Merriweather:wght@400;700&family=Open+Sans:wght@400;600&family=Playfair+Display:wght@400;700&family=Roboto:wght@400;500&family=Source+Sans+Pro:wght@400;600&family=Poppins:wght@400;500;600&family=Montserrat:wght@400;500;600&family=Raleway:wght@400;500;600&family=Ubuntu:wght@400;500&family=Nunito:wght@400;600&display=swap');
+            @import url('https://fonts.googleapis.com/css2?family=Lato:wght@400;700&family=Merriweather:wght@400;700&family=Open+Sans:wght@400;600&family=Playfair+Display:wght@400;700&family=Roboto:wght@400;500&family=Source+Sans+Pro:wght@400;600&family=Inter:wght@400;600display=swap');
           `}</style>
           <Select
             defaultValue='Roboto'
@@ -145,6 +145,7 @@ export const CVPreview = ({ data }: CVPreviewProps) => {
               <SelectItem value='Arial'>Arial</SelectItem>
               <SelectItem value='Times New Roman'>Times New Roman</SelectItem>
               <SelectItem value='Helvetica'>Helvetica</SelectItem>
+              <SelectItem value='Inter'>Inter</SelectItem>
             </SelectContent>
           </Select>
 
